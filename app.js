@@ -5,7 +5,13 @@ const filter = document.querySelector('#filter');
 const taskInput = document.querySelector('#task');
 
 
-function loadEventListener() {
+function loadEnventListener() {
+    loadEnventSubmit();
+    loadEnventClick();
+}
+
+
+function loadEnventSubmit() {
     //peando o evento de submit do add task
     form.addEventListener('submit', (event) => {
         //checando de o valor mandado é vazio
@@ -26,7 +32,7 @@ function loadEventListener() {
     
         //criando a tag i dentro do link <a><i></i></a>
 
-        link.innerHTML = '<i class="fa fa-remove"></i>';
+        link.innerHTML = '<i class="fas fa-remove"></i>';
     
         //link é adicionado como um filho do elemento li 
         li.appendChild(link);
@@ -42,5 +48,15 @@ function loadEventListener() {
     });
 }
 
-loadEventListener();
+
+function loadEnventClick() {
+    taskList.addEventListener('click', (e) => {
+        if(e.target.parentElement.classList.contains('delete-item')) {
+            console.log(e.target);
+        }
+
+    })
+}
+
+loadEnventListener();
 
